@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Lista de Habitaciones</h1>
+  {% if room_list %}
+    <ul>
+      {% for room in room_list %}
+      <li>
+        <p>Habitacion numero: <a href="{{ room.get_absolute_url }}">{{ room.room_number }}</a>
+         de tipo: ({{room.room_type}})<p>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no rooms in the library.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% block title %}
+    <title>Hotel Local</title>
+    {% endblock %}
+  <h1>Esto e un Hotel</h1>
+  <p>
+    {% comment %} Welcome to LocalLibrary, a website developed by
+    <em>Mozilla Developer Network</em>! {% endcomment %}
+  </p>
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Habitaciones:</strong> {{ num_room }}</li>
+    <li><strong>Reservas:</strong> {{ num_reservations }}</li>
+    <li><strong>Habitaciones Disponibles:</strong> {{ num_rooms_available }}</li>
+    {% comment %} <li><strong>Authors:</strong> {{ num_authors }}</li> {% endcomment %}
+  </ul>
+{% endblock %}
