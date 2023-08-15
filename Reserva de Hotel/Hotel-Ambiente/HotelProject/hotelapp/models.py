@@ -8,24 +8,49 @@ import datetime
 class Room(models.Model):
     """Model representing a hotel room."""
     ROOM_TYPES = (
-        ('Single', 'Single'),
-        ('Double', 'Double'),
+        ('Individual', 'Individual'),
+        ('Doble', 'Doble'),
         ('Suite', 'Suite'),
+        ('Presidencial','Presidencial'),
+        ('Pequeño','Pequeño'),
+    )
+    
+    CAPACITY = (
+        (1,1),
+        (2,2),
+        (3,3),
+        (4,4),
+        (5,5),
+        (6,6),
+        (7,7),
+        (8,8),
+        (9,9),
+        (10,10),
+    )
+    
+    DISPONIBILIDAD = (
+        ('libre','libre'),
+        ('ocupada','ocupada'),
+        ('en limpieza','en limpieza'),
+        ('mantenimiento','mantenimiento'),
     )
 
     room_number = models.CharField(max_length=10, unique=True)
-    room_type = models.CharField(max_length=10, choices=ROOM_TYPES, default='Single')
-    room_description = models.TextField(max_length=500, help_text="Descripcion de la habitacion",default='Descripcion')
+    room_type = models.CharField(max_length=50, choices=ROOM_TYPES, default='Single')
+    room_capacity = models.IntegerField(choices=CAPACITY, default=1)
+    room_description = models.TextField(max_length=500, help_text="Descripcion de la habitacion",default='')
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
-    available = models.BooleanField(default=True)
+    available = models.CharField(max_length=20, choices=DISPONIBILIDAD, default='libre')
 
     def __str__(self):
         """String for representing the Model object."""
         return f"Room {self.room_number} - {self.room_type}"
     
-    def get_absolute_url(self):
+    def get_room_detail(self):
         """Returns the URL to access a detail record for this room."""
         return reverse('rooms-detail', args=[str(self.id)])
+
+
 
 class Reservation(models.Model):
     """Model representing a room reservation."""

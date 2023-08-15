@@ -6,8 +6,8 @@
     <ul>
       {% for room in room_list %}
       <li>
-        <p>Habitacion numero: <a href="{{ room.get_absolute_url }}">{{ room.room_number }}</a>
-         de tipo: ({{room.room_type}})<p>
+        <p>Habitacion numero: {{ room.room_number }} {{room.room_type}}
+          <a href="{{ room.get_room_detail }}"> Ver mas</a><p>
       </li>
       {% endfor %}
     </ul>

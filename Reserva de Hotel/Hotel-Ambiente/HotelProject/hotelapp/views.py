@@ -10,17 +10,14 @@ def index(request):
     num_room = Room.objects.all().count()
     num_reservations = Reservation.objects.all().count()
 
-    # Available books (status = 'a')
-    num_rooms_available = Room.objects.filter(available=True).count()
+    # Available rooms
+    num_rooms_available = Room.objects.filter(available='libre').count()
 
-    # The 'all()' is implied by default.
-    # num_authors = Author.objects.count()
 
     context = {
         'num_room': num_room,
         'num_reservations': num_reservations,
         'num_rooms_available': num_rooms_available,
-        # 'num_authors': num_authors,
     }
 
     # Render the HTML template index.html with the data in the context variable
