@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+<body id="body_login">
+  <div class="Wrapper">
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <h1>login</h1>
+      <div class="input-box">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        <!-- <input type="text" placeholder="Username" required > -->
+        <i class='bx bxs-user'></i>
+      </div>
+
+      <div class="input-box">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        <!-- <input type="password" placeholder="Password" required> -->
+        <i class='bx bxs-lock-alt' ></i>
+      </div>
+
+      <!-- <table>
+        <tr>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password.label_tag }}</td>
+          <td>{{ form.password }}</td>
+        </tr>
+      </table> -->
+
+      <div class="remember-forgot">
+        <label ><input type="checkbox">Remember me </label>
+        <a href="#">Forgot password</a>
+      </div>
+
+      <button type="submit" class="boton" value="login">Login</button>
+      <input type="hidden" name="next" value="{{ next }}">
+
+      <div class="register-link">
+        <p>Dont have an account?<a href="register.html">  Register</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+{% endblock %}

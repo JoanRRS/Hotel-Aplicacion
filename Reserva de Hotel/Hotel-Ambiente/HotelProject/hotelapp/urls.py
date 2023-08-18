@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('rooms/',views.RoomListView.as_view(), name='rooms'),
     path('rooms/<int:pk>', views.RoomDetailView.as_view(), name='rooms-detail'),
+    
 ]

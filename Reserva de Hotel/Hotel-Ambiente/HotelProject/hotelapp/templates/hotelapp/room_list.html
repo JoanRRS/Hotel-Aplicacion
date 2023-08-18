@@ -2,15 +2,16 @@
 
 {% block content %}
   <h1>Lista de Habitaciones</h1>
+  <div id="room_list">
   {% if room_list %}
-    <ul>
+    <!-- <ul> -->
       {% for room in room_list %}
-      <li>
-        <p>Habitacion numero: {{ room.room_number }} {{room.room_type}}
-          <a href="{{ room.get_room_detail }}"> Ver mas</a><p>
-      </li>
+      <!-- <li> -->
+        <p>Habitacion numero: {{ room.room_number }} {{room.room_type}} <a href="{{ room.get_room_detail }}"> <button>Ver mas</button></a><p>
+      <!-- </li> -->
       {% endfor %}
-    </ul>
+    <!-- </ul> -->
+  </div>
   {% else %}
     <p>There are no rooms in the library.</p>
   {% endif %}
