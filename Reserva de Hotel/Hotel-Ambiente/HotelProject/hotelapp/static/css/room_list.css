@@ -1,0 +1,65 @@
+.room-list-container {
+  margin: 20px auto;
+  max-width: 800px; /* Added to limit width */
+}
+
+.room-list-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+}
+
+.room-list {
+  list-style: none;
+  padding: 0;
+}
+
+.room-item {
+  display: flex; /* Use flexbox for better alignment */
+  align-items: center; /* Vertically align content */
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-image {
+  flex: 0 0 30%; /* Adjust the width of the image container */
+  padding-right: 20px;
+  width: 100%; /* Set the width to 100% to prevent overflow */
+  max-width: 200px; /* Limit the max width of the image */
+  height: auto;
+}
+
+.room-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-info {
+  flex: 1;
+}
+
+.room-detail-link {
+  text-decoration: none;
+}
+
+.room-detail-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.no-rooms-message {
+  font-style: italic;
+  color: #555;
+  text-align: center; /* Center the message */
+  margin: 20px;
+}

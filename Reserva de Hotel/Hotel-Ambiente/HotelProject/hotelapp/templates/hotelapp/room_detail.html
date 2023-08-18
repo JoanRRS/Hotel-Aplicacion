@@ -1,13 +1,19 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Numero de Habitacion {{ room.room_number }}</h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/room_detail.css' %}">
+<!-- Page Content -->
 
-  <p><strong>Tipo</strong>: {{ room.room_type }}</a></p>
-  <!-- author detail link not yet defined -->
-  <p><strong>Descripcion</strong>: {{ room.room_description }}</p>
-  <p><strong>Disponibilidad</strong>: {{ room.available }}</p>
-  {% comment %} 
-  <p><strong>Precio por noche</strong>: {{ room.price_per_night  }}</p>
-  {% endcomment %}
+  <div class="room-detail">
+    <h1 class="room-title">Detalles de la Habitacion {{ room.room_number }}</h1>
+    <p class="room-description">{{ room.room_description }}</p>
+    <p class="room-info">Tipo: {{ room.room_type }}</p>
+    <p class="room-info">Capacidad: {{ room.room_capacity }}</p>
+    <p class="room-info">Precio por noche: <span class="room-price">${{ room.price_per_night }}</span></p>
+    <p class="room-status">Disponibilidad: {{ room.available }}</p>
+    <div class="room-actions">
+      <a href="{{ room.get_room_detail }}" class="room-detail-button">Reservar</a>
+    </div>
+  </div>
 {% endblock %}

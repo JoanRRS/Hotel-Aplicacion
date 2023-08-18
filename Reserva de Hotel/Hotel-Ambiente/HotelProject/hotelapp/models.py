@@ -15,8 +15,21 @@ class Room(models.Model):
         ('Pequeño','Pequeño'),
     )
     
-    CAPACITY = (
-        (1,1),
+    ADULTS = (
+        (1,1,),
+        (2,2),
+        (3,3),
+        (4,4),
+        (5,5),
+        (6,6),
+        (7,7),
+        (8,8),
+        (9,9),
+        (10,10),
+    )
+    
+    CHILDRES = (
+        (1,1,),
         (2,2),
         (3,3),
         (4,4),
@@ -37,10 +50,12 @@ class Room(models.Model):
 
     room_number = models.CharField(max_length=10, unique=True)
     room_type = models.CharField(max_length=50, choices=ROOM_TYPES, default='Single')
-    room_capacity = models.IntegerField(choices=CAPACITY, default=1)
+    room_adults = models.IntegerField(choices=ADULTS, default=1)
+    room_childrens = models.IntegerField(choices=CHILDRES, default=1)
     room_description = models.TextField(max_length=500, help_text="Descripcion de la habitacion",default='')
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.CharField(max_length=20, choices=DISPONIBILIDAD, default='libre')
+    room_image = models.ImageField(upload_to='room_images/', blank=True, null=True)
 
     def __str__(self):
         """String for representing the Model object."""

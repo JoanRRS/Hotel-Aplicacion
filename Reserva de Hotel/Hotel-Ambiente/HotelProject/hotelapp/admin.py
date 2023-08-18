@@ -12,7 +12,7 @@ class ReservationInline(admin.TabularInline):
 
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ('room_number', 'room_type','room_capacity','price_per_night','available')
+    list_display = ('room_number', 'room_type','room_adults','room_childrens','price_per_night','available')
     list_filter = ['room_number', 'available']
     inlines=[ReservationInline]
 

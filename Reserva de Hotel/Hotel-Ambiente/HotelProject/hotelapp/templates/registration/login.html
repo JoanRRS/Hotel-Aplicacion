@@ -1,4 +1,6 @@
 {% extends "base_generic.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 
 {% block content %}
 
@@ -32,17 +34,6 @@
         <!-- <input type="password" placeholder="Password" required> -->
         <i class='bx bxs-lock-alt' ></i>
       </div>
-
-      <!-- <table>
-        <tr>
-          <td>{{ form.username.label_tag }}</td>
-          <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-          <td>{{ form.password.label_tag }}</td>
-          <td>{{ form.password }}</td>
-        </tr>
-      </table> -->
 
       <div class="remember-forgot">
         <label ><input type="checkbox">Remember me </label>

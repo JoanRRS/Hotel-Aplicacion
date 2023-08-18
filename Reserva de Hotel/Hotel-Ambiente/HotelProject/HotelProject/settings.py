@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# MEDIA PARA USER UPLOAD FOTOS
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Application definition
 
@@ -82,7 +86,7 @@ DATABASES = {
         'USER':'root',
         'PASSWORD':'123456',
         'HOST':'localhost',
-        'PORT':'3308',
+        'PORT':'3306',
     }
 }
 

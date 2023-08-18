@@ -13,9 +13,9 @@
       crossorigin="anonymous" /> -->
     <!-- Add additional CSS in static file -->
     {% load static %}
-    <link rel="stylesheet"  href="{% static 'styles.css' %}" />
-    <link rel="stylesheet"  href="{% static 'login.css' %}" />
-    <link rel="stylesheet"  href="{% static 'registro.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static '../static/css/registro.css' %}" /> {% endcomment %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static '../static/css/room_list.css' %}"> {% endcomment %}
   </head>
   <body id="body_base">
     <div class="container-fluid">
