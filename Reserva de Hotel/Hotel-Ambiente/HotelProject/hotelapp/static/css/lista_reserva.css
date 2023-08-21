@@ -1,0 +1,50 @@
+.reserva-list-container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.reserva-list-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.reserva-list { 
+    list-style: none;
+    padding: 0;
+}
+ 
+.reserva-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reserva-info {
+    flex: 1;
+}
+
+.reserva-detail-link {
+    text-decoration: none;
+}
+
+.reserva-detail-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.no-reserva-message {
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    margin: 20px;
+}

@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/detalle_reserva.css' %}">
+
+    <div class="reserva-detail">
+        <h1 class="reserva-title">Detalle de Reserva</h1>
+        <p class="reserva-info">ID de Reserva: {{ reserva.id }}</p>
+        <p class="reserva-info">Usuario: {{ reserva.user.username }}</p>
+        <p class="reserva-info">Fecha de Entrada: {{ reserva.check_in_date }}</p>
+        <p class="reserva-info">Fecha de Salida: {{ reserva.check_out_date }}</p>
+        <p class="reserva-info">Duración de la Estancia: {{ duracion_estancia }} días</p>
+        <p class="reserva-info">Habitación: {{ reserva.room }}</p>
+        <p class="reserva-info">Precio Total: <span class="reserva-price">${{ precio_total }}</span></p>
+        <p class="reserva-status">Activa: {% if reserva.is_active %}Sí{% else %}No{% endif %}</p>
+
+        <div class="reserva-actions">
+    <a href="{% url 'crear_reserva' %}" class="reserva-detail-button">Crear una nueva reserva</a>
+    <a href="{% url 'cancelar_reserva' reserva.id %}" class="reserva-detail-button">Cancelar Reserva</a>
+
+  </div>
+    </div>
+{% endblock %}
+
+

@@ -9,11 +9,12 @@
     <h1 class="room-title">Detalles de la Habitacion {{ room.room_number }}</h1>
     <p class="room-description">{{ room.room_description }}</p>
     <p class="room-info">Tipo: {{ room.room_type }}</p>
-    <p class="room-info">Capacidad: {{ room.room_capacity }}</p>
+    <p class="room-info">Capacidad Adultos: {{ room.room_adults }}</p>
+    <p class="room-info">Capacidad Niños: {{ room.room_childrens }}</p>
     <p class="room-info">Precio por noche: <span class="room-price">${{ room.price_per_night }}</span></p>
     <p class="room-status">Disponibilidad: {{ room.available }}</p>
     <div class="room-actions">
-      <a href="{{ room.get_room_detail }}" class="room-detail-button">Reservar</a>
+      <a href="{% url 'crear_reserva' %}" class="room-detail-button">Reservar</a>
     </div>
   </div>
 {% endblock %}

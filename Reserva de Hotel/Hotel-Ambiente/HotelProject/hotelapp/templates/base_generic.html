@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     {% block title %}
-      <title>Local Library</title>
+      <title>Local Hotel</title>
     {% endblock %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,6 +14,7 @@
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/crear_usuario.css' %}">
     {% comment %} <link rel="stylesheet" type="text/css" href="{% static '../static/css/registro.css' %}" /> {% endcomment %}
     {% comment %} <link rel="stylesheet" type="text/css" href="{% static '../static/css/room_list.css' %}"> {% endcomment %}
   </head>
@@ -25,7 +26,20 @@
             <ul class="sidebar-nav">
               <li><a href="{% url 'index' %}">Home</a></li>
               <li><a href="{% url 'rooms' %}">Todas Las Habitaciones</a></li>
-              <li><a href="">Todas las Reservas</a></li>
+              <li><a href="{% url 'lista' %}">Todas las Reservas</a></li>
+            </ul>
+            <ul class="sidebar-nav">
+             {% if user.is_authenticated %}
+               <li>Usuario: {{ user.get_username }}</li>
+               <li><a href="{% url 'logout' %}">Logout</a></li>
+             {% else %}
+               <li><a href="{% url 'login' %}">Login</a></li>
+             {% endif %}
+
+             {% if not user.is_authenticated %}
+             <a href="{% url 'crear_usuario' %}">Registrarse</a>
+             {% endif %}
+             
             </ul>
           {% endblock %}
         </div>

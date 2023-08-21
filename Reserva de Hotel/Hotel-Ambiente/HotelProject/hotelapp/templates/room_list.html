@@ -1,9 +1,13 @@
 {% extends "base_generic.html" %}
 {% block content %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/room_list.css' %}">
 
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/room_list.css' %}">
 
+  {% block title %}
+    <title>Hotel La Bendicion</title>
+  {% endblock %}
+  
   <div class="room-list-container">
     <h1 class="room-list-title">Lista de Habitaciones</h1>
     {% if room_list %}
@@ -26,8 +30,8 @@
           </li>
         {% endfor %}
       </ul>
-  {% else %}
-    <p class="no-rooms-message">No hay habitaciones disponibles en la lista.</p>
-  {% endif %}
-</div>
+    {% else %}
+      <p class="no-rooms-message">No hay habitaciones disponibles en la lista.</p>
+    {% endif %}
+  </div>
 {% endblock %}

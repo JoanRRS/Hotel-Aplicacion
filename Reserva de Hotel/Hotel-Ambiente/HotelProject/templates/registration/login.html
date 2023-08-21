@@ -1,8 +1,9 @@
 {% extends "base_generic.html" %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+
 
 {% block content %}
+{% load static %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" /> {% endcomment %}
 
   {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
@@ -13,14 +14,15 @@
       <p>Your account doesn't have access to this page. To proceed,
       please login with an account that has access.</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p>Porfavor inicia sesion para poder ver esta pagina.</p>
     {% endif %}
   {% endif %}
+
 <body id="body_login">
   <div class="Wrapper">
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
-      <h1>login</h1>
+      <h1>Hotel La Bendicion</h1>
       <div class="input-box">
         {{ form.username.label_tag }}
         {{ form.username }}
@@ -33,19 +35,19 @@
         {{ form.password }}
         <!-- <input type="password" placeholder="Password" required> -->
         <i class='bx bxs-lock-alt' ></i>
-      </div>
-
+      </div><br>
       <div class="remember-forgot">
         <label ><input type="checkbox">Remember me </label>
-        <a href="#">Forgot password</a>
+        <a href="{% url 'password_reset' %}">Olvidaste la contraseña?</a>
       </div>
 
       <button type="submit" class="boton" value="login">Login</button>
       <input type="hidden" name="next" value="{{ next }}">
 
       <div class="register-link">
-        <p>Dont have an account?<a href="register.html">  Register</a></p>
+        <p>No tienes una cuenta?<a href="{% url 'crear_usuario' %}">  Registrate</a></p>
       </div>
+
     </form>
   </div>
 </body>

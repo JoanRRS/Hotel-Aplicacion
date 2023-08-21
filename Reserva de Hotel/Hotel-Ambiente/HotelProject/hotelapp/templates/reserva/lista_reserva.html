@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/lista_reserva.css' %}">
+
+<div class="reserva-list-container">
+    <h1 class="reserva-list-title">Lista de Reservas</h1>
+    {% if reservas %}
+        <ul class="reserva-list"> 
+            {% for reserva in reservas %}
+                <li class="reserva-item">
+                    <div class="reserva-info">
+                        <p>Reserva número: {{ reserva.id }}</p>
+                        <p>Habitación número: {{ reserva.room.room_number }} {{ reserva.room.room_type }}</p>
+                        <a href="{% url 'detalle_reserva' reserva.id %}" class="reserva">
+                            <button class="reserva-detail-button">Ver más</button>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-reserva-message">No hay reservas disponibles en la lista.</p>
+    {% endif %}
+</div>
+{% endblock %}

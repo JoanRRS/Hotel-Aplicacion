@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/room_list.css' %}">
+
+
+  <div class="room-list-container">
+    <h1 class="room-list-title">Lista de Habitaciones</h1>
+    {% if room_list %}
+      <ul class="room-list">
+        {% for room in room_list %}
+          <li class="room-item">
+            <div class="room-image">
+              {% if room.room_image %}
+                <img src="{{ room.room_image.url }}" alt="{{ room.room_type }}">
+              {% else %}
+                <div class="no-image-placeholder">No Image</div>
+              {% endif %}
+            </div>
+            <div class="room-info">
+              <p>Habitacion numero: {{ room.room_number }} {{ room.room_type }}</p>
+              <a href="{{ room.get_room_detail }}" class="room-detail-link">
+                <button class="room-detail-button">Ver más</button>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+  {% else %}
+    <p class="no-rooms-message">No hay habitaciones disponibles en la lista.</p>
+  {% endif %}
+</div>
+{% endblock %}

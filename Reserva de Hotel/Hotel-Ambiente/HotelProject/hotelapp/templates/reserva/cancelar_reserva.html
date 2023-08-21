@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cancelar_reserva.css' %}">
+<div class="reserva-detail">
+    <h2>Cancelar Reserva</h2>
+    <p>Estás a punto de cancelar la siguiente reserva:</p>
+    <p class="reserva-info">Reserva ID: {{ reserva.id }}</p>
+    <p class="reserva-info">Habitación: {{ reserva.room }}</p>
+    <p class="reserva-info">Usuario: {{ reserva.user.username }}</p>
+    <p class="reserva-info">Fecha de Inicio: {{ reserva.check_in_date }}</p>
+    <p class="reserva-info">Fecha de Fin: {{ reserva.check_out_date }}</p>
+    <p class="reserva-info">Duración de la Estancia: {{ duracion_estancia }} días</p>
+    <p class="reserva-info">Precio Total:<span class="reserva-price"> {{ precio_total }}</span></p>
+
+    <p>¿Estás seguro que deseas cancelar esta reserva?</p>
+    <form method="post" action="{% url 'cancelar_reserva' reserva.id %}">
+        {% csrf_token %}
+        <button type="submit" class="reserva-detail-button">Cancelar Reserva</button>
+    </form>
+    
+    <p><a href="{% url 'lista' %}" class="reserva-detail-button">Volver a Mis Reservas</a></p>
+</div>
+{% endblock %}
+
+
